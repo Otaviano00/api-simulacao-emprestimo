@@ -1,6 +1,6 @@
 package br.caixa.resource.emprestimo;
 
-import br.caixa.dto.SimulacaoEmprestimoRequest;
+import br.caixa.dto.emprestimo.simulacao.SimulacaoEmprestimoRequest;
 import br.caixa.service.ProdutoService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -10,7 +10,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("emprestimos/simulacao")
+@Path("api/v0/emprestimo/simulacao")
 @ApplicationScoped
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -24,7 +24,7 @@ public class SimulacaoResource {
         return "Simulação de empréstimo realizada com sucesso!";
     }
 
-    @Path("produtos")
+    @Path("produto")
     @GET
     public Response getSimulacoes() {
         var produtos = produtoService.getAllProdutos();
